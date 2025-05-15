@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .sidebar {
+            width: 70px;
+            background-color: #23272A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+        .server-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #7289DA;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .channels {
+            width: 250px;
+            background-color: #2C2F33;
+            color: white;
+            padding: 20px;
+        }
+        .channels h2 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+        .channels ul {
+            list-style: none;
+            padding: 0;
+        }
+        .channels li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .channels li:hover {
+            background-color: #424549;
+        }
+        .chat {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #36393F;
+            color: white;
+        }
+        .chat-header {
+            padding: 15px;
+            background-color: #2C2F33;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="server-icon">D</div>
+            <div class="server-icon">+</div>
+        </div>
+        
+        <!-- Channels List -->
+        <div class="channels">
+            <h2>Server Name</h2>
+            <ul>
+                <li># general</li>
+                <li># gaming</li>
+                <li># memes</li>
+                <li># music</li>
+            </ul>
+        </div>
+        
+        <!-- Chat Section -->
+        <div class="chat">
+            <div class="chat-header"># general</div>
+            <div class="chat-messages">
+                <p><strong>User1:</strong> Hello!</p>
+                <p><strong>User2:</strong> Hey there!</p>
+            </div>
+            <input type="text" placeholder="Type a message...">
+        </div>
+    </div>
+</body>
+</html>

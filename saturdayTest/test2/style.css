@@ -1,0 +1,92 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Light Theme */
+body.light {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Container */
+.container {
+    background-color: inherit;
+    border: 2px solid currentColor;
+    padding: 30px 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Password Display */
+.password {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 1px dashed currentColor;
+    border-radius: 10px;
+    min-width: 250px;
+    word-wrap: break-word;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Light Theme Buttons */
+body.light button {
+    background-color: #007bff;
+    color: white;
+}
+
+body.light button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Theme Buttons */
+body.dark button {
+    background-color: #1e90ff;
+    color: white;
+}
+
+body.dark button:hover {
+    background-color: #1c6ecf;
+}
+
+/* Theme Button Position */
+.theme {
+    margin-top: 20px;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* text-align: center; */
+            margin: 50px;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: rgb(118, 118, 176);
+            color: white;
+            border-radius: 5px;
+        }
+        .todocontainer {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        li {
+            width: 350px;
+            padding: 10px;
+            margin: 5px;
+            list-style: none;
+            display: flex;
+            /* align-items: center; */
+            justify-content: space-between;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+        .deletebtn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .task-done {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>ToDo List</h1>
+    <input type="text" id="textarea" placeholder="Enter your task...">
+    <button id="addtodo">Add Task</button>
+    <ul class="todocontainer">
+    </ul>
+
+    <script>
+        const textarea = document.getElementById("textarea");
+        const addtodo = document.getElementById("addtodo");
+        const todocontainer = document.querySelector(".todocontainer");
+
+        function addTask() {
+            const todotext = textarea.value.trim();
+            if (todotext === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            const todoitem = document.createElement("li");
+            const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            todoitem.style.backgroundColor = randomColor;
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", function () {
+                if (checkbox.checked) {
+                    tododiv.classList.add("task-done");
+                } else {
+                    tododiv.classList.remove("task-done");
+                }
+            });
+
+            const tododiv = document.createElement("span");
+            tododiv.innerText = todotext;
+            
+            const deletebtn = document.createElement("button");
+            deletebtn.innerText = "Delete";
+            deletebtn.classList.add("deletebtn");
+            deletebtn.addEventListener("click", function () {
+                todoitem.remove();
+            });
+
+            todoitem.appendChild(checkbox);
+            todoitem.appendChild(tododiv);
+            todoitem.appendChild(deletebtn);
+            todocontainer.appendChild(todoitem);
+
+            textarea.value = "";
+        }
+
+        addtodo.addEventListener("click", addTask);
+        textarea.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>
