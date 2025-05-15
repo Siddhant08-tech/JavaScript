@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,14 @@
             /* text-align: center; */
             margin: 50px;
         }
+
         input {
             width: 300px;
             padding: 10px;
             font-size: 20px;
             margin-bottom: 10px;
         }
+
         button {
             padding: 10px 15px;
             font-size: 16px;
@@ -25,12 +28,14 @@
             color: white;
             border-radius: 5px;
         }
+
         .todocontainer {
             margin-top: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         li {
             width: 350px;
             padding: 10px;
@@ -43,20 +48,23 @@
             color: white;
             font-weight: bold;
         }
+
         .deletebtn {
-            background-color: red;
+            background-color: rgb(255, 0, 0);
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
             border-radius: 3px;
         }
+
         .task-done {
             text-decoration: line-through;
             opacity: 0.6;
         }
     </style>
 </head>
+
 <body>
     <h1>ToDo List</h1>
     <input type="text" id="textarea" placeholder="Enter your task...">
@@ -69,6 +77,10 @@
         const addtodo = document.getElementById("addtodo");
         const todocontainer = document.querySelector(".todocontainer");
 
+        const getRandomColor = () => {
+            return Math.floor(Math.random() * 250)
+        }
+
         function addTask() {
             const todotext = textarea.value.trim();
             if (todotext === "") {
@@ -77,8 +89,10 @@
             }
 
             const todoitem = document.createElement("li");
-            const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-            todoitem.style.backgroundColor = randomColor;
+            // const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+
+
+            todoitem.style.backgroundColor = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
 
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
@@ -92,7 +106,7 @@
 
             const tododiv = document.createElement("span");
             tododiv.innerText = todotext;
-            
+
             const deletebtn = document.createElement("button");
             deletebtn.innerText = "Delete";
             deletebtn.classList.add("deletebtn");
@@ -109,11 +123,12 @@
         }
 
         addtodo.addEventListener("click", addTask);
-        textarea.addEventListener("keydown", function(event) {
+        textarea.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 addTask();
             }
         });
     </script>
 </body>
+
 </html>
